@@ -55,7 +55,7 @@ export class AssignmentsService {
       include: [
         {
           model: Variant,
-          attributes: ['id', 'name'],
+          attributes: ['id', 'option'],
           required: true,
         },
       ],

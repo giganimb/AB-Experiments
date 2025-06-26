@@ -30,10 +30,10 @@ export class StatisticsService {
 
     const distribution = variantStats.map((entry: any) => ({
       variantId: entry['variant.id'],
-      variantName: entry['variant.name'],
+      variantName: entry['variant.option'],
       deviceCount: Number(entry.deviceCount),
       percentage: totalDevices
-        ? Math.round((Number(entry.deviceCount) / totalDevices.length) * 100)
+        ? Math.round((Number(entry.deviceCount) / Number(totalDevices)) * 100)
         : 0,
     }));
 
