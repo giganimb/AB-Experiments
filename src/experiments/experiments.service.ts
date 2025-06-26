@@ -73,7 +73,7 @@ export class ExperimentsService {
   }
 
   async findAll() {
-    await this.experimentRepository.findAll({include: [Variant]})
+    return await this.experimentRepository.findAll({include: [Variant]})
   }
 
   async findById(id: number) {
