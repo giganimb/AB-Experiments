@@ -26,15 +26,17 @@ export class DevicesService {
   }
 
   async findById(id: string) {
-    return await this.deviceRepository.findByPk(id);
-  }
-
-  async activate(id: string) {
     const device = await this.deviceRepository.findByPk(id);
 
     if(!device) {
       throw new HttpException('Device not found', HttpStatus.NOT_FOUND);
     }
+
+    return device;
+  }
+
+  async activate(id: string) {
+    const device = await this.findById(id);
 
     device.isActivated = true;
 
